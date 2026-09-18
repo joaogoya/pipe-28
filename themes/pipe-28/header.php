@@ -6,7 +6,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
+<?php wp_body_open(); ?> 
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
