@@ -3,12 +3,17 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="icon"
+        href="<?php bloginfo('template_url'); ?>/assets/images/logo.png"
+        type="image/png">
+
     <?php wp_head(); ?>
 </head> 
 <body <?php body_class(); ?>> 
 <?php wp_body_open(); ?> 
 
-<header> 
+<!-- <header> 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
             <a class="navbar-brand fw-bold" href="<?php echo esc_url(home_url('/')); ?>">
@@ -29,4 +34,11 @@
             </div>
         </div>
     </nav>
-</header>
+</header> -->
+
+
+    <header id="masthead" class="site-header">
+        <?php get_template_part('includes/navigation/topbar'); ?>
+        <?php get_template_part('includes/navigation/navbar'); ?>
+        <?php get_template_part('includes/navigation/navbarfixed'); ?>
+    </header>
