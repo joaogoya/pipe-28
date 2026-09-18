@@ -1,0 +1,63 @@
+/* Layout & Estrutura do Accordion */
+.accordion-custom .accordion-item {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px !important;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accordion-custom .accordion-item:hover {
+  border-color: var(--accent);
+}
+
+/* Botão da Pergunta */
+.accordion-custom .accordion-button {
+  font-family: var(--font-headings);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  background-color: #ffffff;
+  padding: 1.25rem 1.5rem;
+  box-shadow: none !important;
+}
+
+/* Estado Expandido / Aberto */
+.accordion-custom .accordion-button:not(.collapsed) {
+  color: var(--primary);
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Ícone de Seta Nativo do Bootstrap Customizado */
+.accordion-custom .accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23041d38'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  transition: transform 0.3s ease;
+}
+
+/* Estilização do Texto Interno */
+.faq-content-text {
+  font-family: var(--font-body);
+  font-size: 0.975rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+.faq-content-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Container Responsivo para o Vídeo oEmbed */
+.faq-video-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(4, 29, 56, 0.08);
+}
+
+.faq-video-wrapper iframe,
+.faq-video-wrapper embed,
+.faq-video-wrapper object {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

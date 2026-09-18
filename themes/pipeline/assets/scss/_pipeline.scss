@@ -1,0 +1,97 @@
+/* ==========================================
+   PIPELINE SECTION DESIGN (V2 - SANGRADO)
+   ========================================== */
+
+// Breakpoints
+$bp-lg: 992px;
+$bp-lg-max: 991.98px;
+
+// CTA PÓS-SERVIÇOS (BANNER HORIZONTAL)
+.cta-box-services {
+  background: var(--primary);
+  position: relative;
+  z-index: 1;
+
+  // Marca d'água no fundo do CTA
+  &::after {
+    content: '\f085'; // Ícone fa-cogs/gears
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    font-size: 18rem;
+    bottom: -80px;
+    right: -40px;
+    color: rgba(255, 170, 23, 0.04);
+    z-index: 1;
+    pointer-events: none;
+    line-height: 1;
+  }
+}
+
+// LINHA DIVISÓRIA ENTRE COLUNAS
+.cta-divider-right {
+  @media (min-width: $bp-lg) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  @media (max-width: $bp-lg-max) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.5rem;
+  }
+}
+
+// BOTÃO PIPELINE
+.btn-cta-block {
+  box-shadow: 0 10px 25px rgba(255, 170, 23, 0.3);
+  white-space: nowrap;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 170, 23, 0.45);
+  }
+
+  @media (max-width: $bp-lg-max) {
+    white-space: normal;
+  }
+}
+
+// ELEMENTOS DAS FASES E SUB-ETAPAS
+.phase-badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  min-width: 55px;
+}
+
+.substep-item {
+  transition: background-color 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.09);
+  }
+}
+
+.substep-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  background: rgba(255, 170, 23, 0.15);
+  padding: 4px 8px;
+  border-radius: 6px;
+  min-width: 28px;
+  text-align: center;
+}
+
+// CARD DE APOIO DO BOTÃO
+.cta-support-box {
+  backdrop-filter: blur(5px);
+}
+
+// UTILITÁRIOS
+.opacity-90 { opacity: 0.9; }
+.fs-7 { font-size: 0.85rem; }
+
+.bg-white-05 { background-color: rgba(255, 255, 255, 0.05); }
+.bg-white-10 { background-color: rgba(255, 255, 255, 0.1); }
+.bg-white-20 { background-color: rgba(255, 255, 255, 0.2); }
+.border-white-10 { border-color: rgba(255, 255, 255, 0.1) !important; }

@@ -1,0 +1,105 @@
+/* VARIÁVEIS */
+:root {
+  --primary: #041d38;
+  --accent: #ffaa17;
+  --text-body: #444;
+  --gray: #212529;
+
+  --font-headings: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #fdfdfd;
+  font-family: var(--font-body);
+  color: var(--text-body);
+}
+
+/* ==========================================
+   SITE LOADER STYLES
+   ========================================== */
+
+/* Tela de Fundo (Overlay) */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  /* Ou use var(--primary) se preferir fundo escuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  /* Garante que fique acima de tudo */
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Customização do Spinner Bootstrap */
+.custom-spinner {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-width: 0.25em;
+  /* Cor do anel base usando o tom primary com transparência */
+  border-color: rgba(4, 29, 56, 0.15);
+  /* Cor da ponta giratória com o tom accent */
+  border-right-color: var(--accent);
+}
+
+/* Texto do Loader */
+.loader-text {
+  color: var(--primary);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Classe aplicada via JS para esconder o loader */
+.loader-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
+#btnScrollTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 10px 25px rgba(255, 170, 23, 0.4);
+  cursor: pointer;
+
+  /* ESTADO INICIAL: Invisível, levemente empurrado pra baixo e encolhido */
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  pointer-events: none;
+  /* Impede clique enquanto está invisível */
+
+  /* Transição suave de entrada e saída */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  will-change: transform, opacity;
+
+  &:hover {
+    transform: scale(1.1);
+    background: #fff;
+  }
+
+  &.btn-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    /* Reativa cliques */
+  }
+
+}

@@ -1,0 +1,103 @@
+/* TÍTULOS ELABORADOS */
+.title-elaborado-center {
+    /*sobre e depos */
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title-elaborado-center h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    background: var(--accent);
+    margin: 15px auto 0;
+}
+
+.title-elaborado-col h2 {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.title-elaborado-col h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 5px;
+    background: var(--accent);
+}
+
+/* TÍTULO ELABORADO LATERAL (O estilo Carol Goya) */
+
+/* DECORAÇÃO DE FUNDO (Watermark) */
+.bg-decoration-text {
+    position: absolute;
+    top: 50%;
+    right: -5%;
+    transform: translateY(-50%);
+    font-size: 15rem;
+    font-weight: 900;
+    color: rgba(4, 29, 56, 0.02);
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+.title-elaborado-col {
+    position: relative;
+    padding-left: 20px;
+}
+
+.title-elaborado-col::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 6px;
+    background-color: #ffaa17;
+    border-radius: 10px;
+}
+
+.subtitle-tag {
+    display: block;
+    color: #ffaa17;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+}
+
+
+.text-accent {
+    color: #ffaa17;
+}
+
+
+
+/*titulo seççao serviços - ajustar para usar o tt lateral, estilo carol goya*/
+
+.title-elaborado-center h2 {
+    position: relative;
+    padding-bottom: 25px;
+}
+
+.title-elaborado-center h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 6px;
+    background-color: #ffaa17;
+    border-radius: 10px;
+}
+
+
+
+

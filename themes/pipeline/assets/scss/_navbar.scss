@@ -1,0 +1,110 @@
+
+#navbarfixed {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  border-bottom: 2px solid var(--accent);
+
+  /* ESTADO INICIAL: Escondida acima da tela no Load */
+  transform: translateY(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* SÓ APARECE SE TIVER A CLASSE DE VISÍVEL */
+#navbarfixed.nav-visible {
+  transform: translateY(0) !important;
+}
+
+
+// TOPBAR
+.topbar-social-link {
+    width: 28px;
+    height: 28px;
+    background: var(--gray);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: var(--accent);
+        /* Usa o amarelo premium configurado no common */
+        color: var(--primary);
+        /* Texto/ícone escuro para dar contraste */
+        border-color: var(--accent);
+        transform: translateY(-2px);
+    }
+}
+
+// NAVBAR
+.btn-nav-accent {
+    background-color: var(--accent);
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease-important;
+    display: inline-block;
+
+    &:hover {
+        background-color: #fff;
+        color: var(--gray);
+        box-shadow: 0 8px 20px rgba(255, 170, 23, 0.25);
+        transform: translateY(-1px);
+    }
+}
+
+/* SUBMENU DO BLOG E RESPONSIVIDADE MOBILE */
+@media (max-width: 991.98px) {
+
+    /* Garante alinhamento em bloco e centralizado para os containers no mobile */
+    .w-100-mobile {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    /* Força o botão laranja a manter o comportamento de bloco centralizado no mobile */
+    .btn-nav-accent {
+        display: block;
+        max-width: 280px;
+        /* Evita que o botão exploda 100% da tela, mantendo elegante */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Ajuste do Dropdown do Blog no Mobile (Tom Escuro Elegante) */
+    .custom-dropdown {
+        background-color: #353b41;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: none;
+        padding: 5px 0;
+        margin: 10px auto 5px;
+        border-radius: 12px;
+
+        .dropdown-item {
+            width: 100%;
+            text-align: center;
+            padding: 12px 0;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 600;
+            font-size: 0.9rem;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.05);
+                color: var(--accent);
+            }
+        }
+    }
+}

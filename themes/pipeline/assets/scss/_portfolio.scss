@@ -1,0 +1,152 @@
+/* ==========================================
+   PORTFOLIO & CASES DESIGN
+   ========================================== */
+
+/* GRID MASONRY (DESKTOP / TELAS GRANDES) */
+.portfolio-masonry {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // 4 colunas lado a lado numa única linha
+  grid-gap: 24px;
+}
+
+/* CARDS DE PORTFÓLIO (BASE) */
+.portfolio-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  aspect-ratio: 4 / 5; // Força a proporção "em pé" (retrato) para os 4 cards no desktop
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  // Hover em telas com mouse
+  @media (hover: hover) {
+    &:hover {
+      img {
+        transform: scale(1.08);
+      }
+
+      .portfolio-overlay {
+        opacity: 1;
+      }
+
+      .overlay-content {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Comportamento imediato em telas Touch / Sem Hover
+  @media (hover: none), (pointer: coarse) {
+    .portfolio-overlay {
+      opacity: 1;
+      background: linear-gradient(to bottom, rgba(4, 29, 56, 0.1) 0%, rgba(4, 29, 56, 0.95) 100%);
+    }
+
+    .overlay-content {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* PROPORÇÃO EM PÉ (RETRATO) NO MOBILE (CAROUSEL) */
+.mobile-portrait {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  max-height: 480px;
+  margin: 0 auto;
+}
+
+/* CAROUSEL BOOTSTRAP MOBILE */
+#portfolioCarouselMobile {
+  padding-bottom: 45px;
+
+  .carousel-indicators {
+    bottom: 0;
+
+    button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--accent, #ffaa17);
+      opacity: 0.3;
+      transition: all 0.3s ease;
+
+      &.active {
+        opacity: 1;
+        width: 26px;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background: rgba(4, 29, 56, 0.6);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    backdrop-filter: blur(4px);
+  }
+
+  .carousel-control-prev { left: 10px; }
+  .carousel-control-next { right: 10px; }
+}
+
+/* OVERLAY DE CONTEÚDO */
+.portfolio-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(4, 29, 56, 0) 0%, rgba(4, 29, 56, 0.95) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 25px 20px; // Padding levemente ajustado para caber bem o texto nas 4 colunas
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.overlay-content {
+  transform: translateY(20px);
+  transition: transform 0.5s ease;
+  color: #ffffff;
+}
+
+.client-category {
+  color: #ffaa17;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btn-case-detail {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: color 0.3s, border-color 0.3s;
+
+  &:hover {
+    color: #ffaa17;
+    border-color: #ffaa17;
+  }
+}
+
+
+
+.btn-see-all{
+    background-color: #ffaa17 !important;
+}

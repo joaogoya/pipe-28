@@ -1,0 +1,228 @@
+/* ==========================================
+   BLOG / CASE STUDY LISTING STYLES
+   ========================================== */
+
+/* Seção Principal */
+.blog-brand-list {
+  background-color: #fdfdfd;
+
+  /* Título da Seção (Header da Página) */
+  .title-elaborado-center {
+    .subtitle-tag {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-family: var(--font-headings);
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      
+      b {
+        color: var(--primary);
+        position: relative;
+        display: inline-block;
+        
+        /* Sublinhado sutil de destaque no título */
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 4px;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background-color: var(--accent);
+          z-index: -1;
+          border-radius: 2px;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(4, 29, 56, 0.15), transparent);
+    margin: 2rem 0 3rem 0;
+  }
+}
+
+/* Card Horizontal do Post */
+.post-card-horizontal {
+  background-color: #ffffff;
+  border: 1px solid rgba(4, 29, 56, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+
+  /* Hover State no Card Inteiro */
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(4, 29, 56, 0.08);
+    border-color: rgba(255, 170, 23, 0.4);
+
+    .post-thumb {
+      transform: scale(1.05);
+    }
+
+    .entry-title a {
+      color: var(--accent) !important;
+    }
+
+    .btn-read-more i {
+      transform: translateX(5px);
+    }
+  }
+
+  /* Container da Imagem */
+  .post-img-link {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16 / 10; /* Mantém a imagem sempre na mesma proporção */
+    background-color: var(--primary);
+
+    .post-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  /* Conteúdo do Card */
+  .card-body {
+    time {
+      font-family: var(--font-body);
+      color: var(--accent);
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+
+    .entry-title {
+      font-family: var(--font-headings);
+      line-height: 1.3;
+      margin-top: 0.25rem;
+
+      a {
+        color: var(--primary) !important;
+        transition: color 0.2s ease;
+      }
+    }
+
+    .entry-excerpt {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    /* Botão / Link "Ler Artigo" */
+    .btn-read-more {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      i {
+        font-size: 0.75rem;
+        transition: transform 0.2s ease;
+        color: var(--accent);
+      }
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+  }
+}
+
+/* ==========================================
+   BLOG PAGINATION STYLES
+   ========================================== */
+
+.blog-pagination {
+  ul.page-numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    li {
+      /* Estilo padrão do link e do span do WP */
+      .page-numbers {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 42px;
+        height: 42px;
+        padding: 0 0.75rem;
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--primary);
+        background-color: #ffffff;
+        border: 1px solid rgba(4, 29, 56, 0.12);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        &:hover:not(.current) {
+          background-color: rgba(4, 29, 56, 0.04);
+          border-color: var(--primary);
+          color: var(--primary);
+          transform: translateY(-2px);
+        }
+
+        /* Página Atual */
+        &.current {
+          background-color: var(--primary);
+          border-color: var(--primary);
+          color: #ffffff;
+          box-shadow: 0 4px 10px rgba(4, 29, 56, 0.2);
+          cursor: default;
+        }
+
+        /* Botões "Anterior" e "Próximo" */
+        &.prev,
+        &.next {
+          padding: 0 1.25rem;
+          font-weight: 700;
+          color: var(--primary);
+
+          &:hover {
+            border-color: var(--accent);
+            color: var(--primary);
+            background-color: rgba(255, 170, 23, 0.1);
+          }
+        }
+
+        /* Reticências (...) */
+        &.dots {
+          border: none;
+          background: transparent;
+          color: var(--text-body);
+          cursor: default;
+          
+          &:hover {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+}

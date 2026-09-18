@@ -1,0 +1,22 @@
+/*-----------------------------------------------------------------------------------
+    Template Name: Onitir IT solution template
+    Note: Main Style Scss - Globalized Version
+-----------------------------------------------------------------------------------*/
+
+// 2. IMPORTAÇÃO DOS COMPONENTES
+// Aqui usamos @use 'as *' para carregar os estilos na ordem da cascata CSS
+@use "comon" as *; // Base, resets e fontes
+@use "typography" as *; // Tipografia
+@use "navbar" as *; // Menu lateral
+@use "hero" as *; // Banner principal
+@use "services" as *; // Serviços
+@use "pipeline";
+@use "portfolio" as *; // Portfólio
+@use "depos" as *; // Depoimentos
+@use "contact" as *; // Contato
+@use "blog" as *; // Blog
+@use "single-post" as *;// single post
+@use "faq" as *; // faq
+
+@use "footer" as *; // Rodapé
+

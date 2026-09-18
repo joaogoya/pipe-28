@@ -1,0 +1,148 @@
+
+
+
+
+
+/* ==========================================
+   SINGLE POST CONTENT TYPOGRAPHY & HEADINGS
+   ========================================== */
+
+.single-post-wrapper {
+    // Ou o container pai que envolve the_content()
+    font-family: var(--font-body);
+    color: #2b2f33;
+    line-height: 1.7;
+    font-size: 1.125rem; // 18px base para leitura agradável no blog
+
+    /* TRATAMENTO DOS CABEÇALHOS DENTRO DO CONTEÚDO */
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-headings);
+        color: #041d38; // Tom escuro/navy corporativo
+        font-weight: 800;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+        /* Respiro generoso em cima para indicar troca de assunto/bloco */
+        margin-top: 3rem; // ~48px
+        margin-bottom: 1.25rem;
+        clear: both;
+    }
+
+    /* H2 - DESTAQUE PRINCIPAL DE SEÇÃO (Troca importante de assunto) */
+    h2 {
+        font-size: 2rem; // 32px
+        position: relative;
+        padding-left: 18px;
+
+        /* Detalhe visual: barrinha vertical de destaque na cor primária/accent */
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10%;
+            bottom: 10%;
+            width: 4px;
+            background-color: var(--accent, #ffaa17); // Amarelo/dourado de destaque
+            border-radius: 4px;
+        }
+    }
+
+    /* H3 - SUBTÓPICOS */
+    h3 {
+        font-size: 2.2rem; // 24px
+        margin-top: 2.5rem;
+    }
+
+    /* H4, H5, H6 - SUB-SEÇÕES MENORES */
+    h4 {
+        font-size: 1.25rem; // 20px
+        margin-top: 2rem;
+    }
+
+    /* LINHA DIVISORA (<hr> do Gutenberg) */
+    hr,
+    .wp-block-separator {
+        border: none;
+        height: 1px;
+        background: linear-gradient(to right, rgba(4, 29, 56, 0.15), rgba(4, 29, 56, 0.03));
+        margin: 3.5rem 0;
+    }
+
+    /* AJUSTE PARA O PRIMEIRA ELEMENTO DO CONTEÚDO NÃO FICAR COM MARGIN TOP EXCESSO */
+    >*:first-child {
+        margin-top: 0 !important;
+    }
+
+    /* PARÁGRAFOS E LISTAS (Para manter consistência) */
+    p {
+        margin-bottom: 1.5rem;
+    }
+
+    ul,
+    ol {
+        margin-bottom: 1.75rem;
+        padding-left: 1.5rem;
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    code{
+        color: var(--accent);
+    }
+
+    /* BLOCKQUOTES DO GUTENBERG */
+    blockquote,
+    .wp-block-quote {
+        margin: 2.5rem 0;
+        padding: 1.5rem 2rem;
+        background-color: #f8f9fa;
+        border-left: 4px solid var(--accent, #ffaa17);
+        border-radius: 0 12px 12px 0;
+
+        p {
+            font-family: var(--font-headings);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #041d38;
+            margin-bottom: 0;
+        }
+    }
+
+
+   .is-type-video {
+    text-align: center;
+    margin-top: 70px;
+
+    /* Garante que o container do bloco ocupe 100% */
+    width: 100%;
+
+    iframe {
+        width: 100% !important;
+        /* Substitui o height: auto pelo aspect-ratio */
+        height: auto !important; 
+        aspect-ratio: 16 / 9 !important;
+        
+        /* Opcional: evita estouro de layout */
+        max-width: 100%;
+        display: block;
+    }
+}
+
+
+.cta-post-container{
+    background-color: #041d38;
+    margin-bottom: 45px;
+    h3{
+        color: #f8f9fa;
+        margin-top: 5px;
+    }
+
+}
+
+}
+
