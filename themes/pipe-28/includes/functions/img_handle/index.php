@@ -1,5 +1,5 @@
 <?php
 
-require('imagens-gerais.php');
-require('imagem-critica.php');
+require('attrs.php');
+
 require('galeries.php');

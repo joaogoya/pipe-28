@@ -67,3 +67,25 @@ function pipe_get_galery_from_afc($page_title, $post_type, $custom_field)
         endwhile;
     endif;
 }
+
+
+
+/**
+ * Busca o ID de uma imagem na galeria através do slug (nome do arquivo)
+ */
+function pipe_get_img_id_by_slug($slug) {
+    $args = array(
+        'post_type'      => 'attachment',
+        'name'           => sanitize_title($slug),
+        'posts_per_page' => 1,
+        'post_status'    => 'inherit',
+    );
+
+    $attachments = get_posts($args);
+
+    if ($attachments) {
+        return $attachments[0]->ID;
+    }
+
+    return false;
+}

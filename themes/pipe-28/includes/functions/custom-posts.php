@@ -1,6 +1,45 @@
 <?php
 
 /*******************************************************/
+/**************** POSTTYPE PRODUTOS ********************/
+/*******************************************************/
+
+
+add_action('init', 'type_post_produtos');
+
+function type_post_produtos()
+{
+
+    $descritivos = array(
+        'name' => 'Produtos',
+        'singular_name' => 'Vídeo',
+        'add_new' => 'Adicionar Novo Produto',
+        'add_new_item' => 'Adicionar Produto',
+        'edit_item' => 'Editar Produto',
+        'new_item' => 'Novo Produto',
+        'view_item' => 'Ver Produto',
+        'search_items' => 'Procurar Produto',
+        'not_found' =>  'Nenhum Produto encontrado',
+        'not_found_in_trash' => 'Nenhum Produto na Lixeira',
+        'parent_item_colon' => '',
+        'menu_name' => 'Produtos'
+    );
+
+    $args = array(
+        'labels' => $descritivos,
+        'public' => true,
+        'hierarchical' => false,
+        'menu_icon' => 'dashicons-store',
+        'menu_position' => 36,
+        'supports' => array('title', 'editor', 'thumbnail', 'comments', 'excerpt', 'custom-fields', 'revisions', 'trackbacks')
+    );
+
+    register_post_type('Produtos', $args);
+    flush_rewrite_rules();
+}
+
+
+/*******************************************************/
 /******************** POSTTYPE HOME ********************/
 /*******************************************************/
 
@@ -40,154 +79,44 @@ function type_home_config()
 
 
 
+
 /*******************************************************/
-/***************** POSTTYPE SERVICES *******************/
+/*************** POSTTYPE DIFERENCIAIS *****************/
 /*******************************************************/
 
 
-add_action('init', 'type_services');
+add_action('init', 'type_post_diferenciais');
 
-function type_services()
+function type_post_diferenciais()
 {
 
     $descritivos = array(
-        'name' => 'Servicos',
-        'singular_name' => 'Servico',
-        'add_new' => 'Adicionar Novo servico',
-        'add_new_item' => 'Adicionar servico',
-        'edit_item' => 'Editar servico',
-        'new_item' => 'Novo servico',
-        'view_item' => 'Ver servicos',
-        'search_items' => 'Procurar servico',
-        'not_found' =>  'Nenhum servico encontrado',
-        'not_found_in_trash' => 'Nenhum servico na Lixeira',
+        'name' => 'Diferenciais',
+        'singular_name' => 'Diferencial',
+        'add_new' => 'Adicionar Novo Diferencial',
+        'add_new_item' => 'Adicionar Diferencial',
+        'edit_item' => 'Editar Diferencial',
+        'new_item' => 'Novo Diferencial',
+        'view_item' => 'Ver Diferenciais',
+        'search_items' => 'Procurar Diferencial',
+        'not_found' =>  'Nenhum Diferencial encontrado',
+        'not_found_in_trash' => 'Nenhum Diferencial na Lixeira',
         'parent_item_colon' => '',
-        'menu_name' => 'Servicos'
+        'menu_name' => 'Diferenciais'
     );
 
     $args = array(
         'labels' => $descritivos,
         'public' => true,
-        'hierarchical' => false,
-        'menu_icon' => 'dashicons-store',
-        'menu_position' => 37,
-        'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes', 'post-formats')
+        'hierarchical' => true,
+        'menu_icon' => 'dashicons-superhero',
+        'menu_position' => 36,
+        'supports' => array('title', 'editor', 'thumbnail', 'comments', 'excerpt', 'custom-fields', 'revisions', 'trackbacks', 'page-attributes')
     );
 
-    register_post_type('services', $args);
+    register_post_type('diferenciais', $args);
     flush_rewrite_rules();
 }
 
-
-/*******************************************************/
-/************* CUSTOM TAXONOMY PROJETOS ****************/
-/*******************************************************/
-
-function pd_registrar_taxonomia_projetos() {
-
-    $labels = array(
-        'name'              => 'Projetos',
-        'singular_name'     => 'Projeto',
-        'search_items'      => 'Buscar Projetos',
-        'all_items'         => 'Todos os Projetos',
-        'parent_item'       => 'Projeto Pai',
-        'parent_item_colon' => 'Projeto Pai:',
-        'edit_item'         => 'Editar Projeto',
-        'update_item'       => 'Atualizar Projeto',
-        'add_new_item'      => 'Adicionar Novo Projeto',
-        'new_item_name'     => 'Novo Nome de Projeto',
-        'menu_name'         => 'Projetos',
-    );
-
-    $args = array(
-        'hierarchical'      => true, // true = estilo Categoria (checkboxes); false = estilo Tag (texto)
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true, // Exibe a coluna do cliente na listagem do wp-admin
-        'query_var'         => true,
-        'show_in_rest'      => true, // OBRIGATÓRIO para funcionar no Editor de Blocos (Gutenberg)
-        'rewrite'           => array( 'slug' => 'projetos', 'with_front' => false ),
-    );
-
-    // Registra a taxonomia 'cliente' e associa aos posts do Blog ('post') e ao CPT ('portfolio')
-    register_taxonomy('projetos', array('post'), $args);
-}
-add_action( 'init', 'pd_registrar_taxonomia_projetos' );
-
-
-/*******************************************************/
-/***************** POSTTYPE CLIENTES ******************/
-/*******************************************************/
-
-function pd_registrar_cpt_clientes() {
-
-    $labels = array(
-        'name'               => 'Clientes',
-        'singular_name'      => 'Cliente',
-        'add_new_item'       => 'Adicionar Novo Cliente',
-        'edit_item'          => 'Editar Cliente',
-        'all_items'          => 'Todos os Clientes',
-        'new_item'           => 'Novo Cliente',
-        'view_item'          => 'Ver Clientes',
-        'search_items'       => 'Procurar Cliente',
-        'not_found'          => 'Nenhum Cliente encontrado',
-        'not_found_in_trash' => 'Nenhum Cliente na Lixeira',
-        'parent_item_colon'  => 'Cliente Pai:',
-        'menu_name'          => 'Clientes',
-    );
-
-    $args = array(
-        'labels'          => $labels,
-        'public'          => true,
-        'has_archive'     => true,
-        'hierarchical'    => false, // Mudar para false remove o 'post_parent' desnecessário
-        'show_in_rest'    => true,
-        'menu_icon'       => 'dashicons-groups',
-        'menu_position'   => 38,
-        'supports'        => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes', 'post-formats' ),
-        'rewrite'         => array( 'slug' => 'clientes', 'with_front' => false ),
-    );
-
-    register_post_type( 'clientes', $args );
-}
-add_action( 'init', 'pd_registrar_cpt_clientes' );
-
-
-/*******************************************************/
-/********************* POSTTYPE FAQ ********************/
-/*******************************************************/
-
-function pd_registrar_cpt_faq() {
-
-    $labels = array(
-        'name'               => 'FAQ',
-        'singular_name'      => 'Pergunta',
-        'add_new_item'       => 'Adicionar Nova Pergunta',
-        'edit_item'          => 'Editar Pergunta',
-        'all_items'          => 'Todas as Perguntas',
-        'new_item'           => 'Nova Pergunta',
-        'view_item'          => 'Ver Perguntas',
-        'search_items'       => 'Procurar Pergunta',
-        'not_found'          => 'Nenhuma Pergunta encontrada',
-        'not_found_in_trash' => 'Nenhuma Pergunta na Lixeira',
-        'parent_item_colon'  => 'Pergunta Pai:',
-        'menu_name'          => 'FAQ',
-    );
-
-    $args = array(
-        'labels'          => $labels,
-        'public'          => true,
-        'has_archive'     => true,
-        'hierarchical'    => false, // Mudar para false remove o 'post_parent' desnecessário
-        'show_in_rest'    => true,
-        'menu_icon'       => 'dashicons-editor-help',
-        'menu_position'   => 39,
-        'supports'        => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes', 'post-formats' ),
-        'rewrite'         => array( 'slug' => 'faq', 'with_front' => false ),
-    );
-
-    register_post_type( 'faq', $args );
-}
-add_action( 'init', 'pd_registrar_cpt_faq' );
 
 
