@@ -8,7 +8,7 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?> 
 
-<header>
+<header> 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
             <a class="navbar-brand fw-bold" href="<?php echo esc_url(home_url('/')); ?>">
